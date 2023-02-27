@@ -7,6 +7,7 @@ var timer_field: RichTextLabel
 func _ready()->void:
 	visible = false
 	timer = preload("res://mods-unpacked/otDan-WaveTimer/ui/hud/timer.tscn").instance()
+	hud.margin_bottom = 0
 	hud.anchor_bottom = 1
 	hud.call_deferred("add_child", timer)
 	timer_field = timer.get_child(0).get_child(0).get_child(1).get_child(0)
