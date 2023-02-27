@@ -10,8 +10,8 @@ func _ready()->void:
 	hud.margin_bottom = 0
 	hud.anchor_bottom = 1
 	hud.call_deferred("add_child", timer)
-	timer_field = timer.get_child(0).get_child(0).get_child(1).get_child(0)
-	timer.get_child(1).play("timer_ticking")
+	timer_field = timer.get_node("%TimerField")
+	timer.get_node("%Animation").play("timer_ticking")
 
 func _process(_delta:float)->void:
 	if wave_timer != null and is_instance_valid(wave_timer) and not is_run_lost:

@@ -81,7 +81,8 @@ bbcode_text = "[center]99[/center]"
 text = "99"
 fit_content_height = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Animation" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 playback_speed = 0.35
 anims/RESET = SubResource( 2 )
 anims/timer_ticking = SubResource( 1 )
