@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://mods-unpacked/otDan-WaveTimer/ui/hud/wavetimer-timer_icon.png" type="Texture" id=1]
+[ext_resource path="res://mods-unpacked/otDan-WaveTimer/resources/fonts/actual/wavetimer-font_timer_outline.tres" type="DynamicFont" id=2]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("VBoxContainer/Control/AspectRatioContainer/TextureRect:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "timer_ticking"
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("VBoxContainer/Control/AspectRatioContainer/TextureRect:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, 0, 0, 0, 0, 15, -0.1, -0.1, 0.1, 0.1, 0, 0, 0, 0, 0, -15, -0.1, -0.1, 0.1, 0.1, -1, 0, 0, 0, 0 ),
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 )
+}
+
+[node name="Timer" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 128, 128 )
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 1792.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+alignment = 2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_top = 952.0
+margin_right = 128.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 128, 128 )
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 0.984
+margin_bottom = 2.048
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Control/AspectRatioContainer"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( 64, 64 )
+texture = ExtResource( 1 )
+expand = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = 4.0
+margin_right = -1.0
+margin_bottom = 3.99988
+alignment = 1
+
+[node name="TimerField" type="RichTextLabel" parent="VBoxContainer/Control/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 39.0
+margin_right = 128.0
+margin_bottom = 87.0
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]99[/center]"
+text = "99"
+fit_content_height = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 0.35
+anims/RESET = SubResource( 2 )
+anims/timer_ticking = SubResource( 1 )
