@@ -1,7 +1,7 @@
 {
   "name": "WaveTimer",
   "namespace": "otDan",
-  "version_number": "1.0.1",
+  "version_number": "1.1.0",
   "description": "Modifies the in game timer to have a new look",
   "website_url": "https://github.com/otDan/Brotato-WaveTimer",
   "dependencies": [],
