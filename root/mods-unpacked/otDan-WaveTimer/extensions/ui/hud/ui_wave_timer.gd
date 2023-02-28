@@ -10,6 +10,7 @@ func _ready()->void:
 	hud.margin_bottom = 0
 	hud.anchor_bottom = 1
 	hud.call_deferred("add_child", timer)
+	hud.mouse_filter = MOUSE_FILTER_IGNORE
 	timer_field = timer.get_node("%TimerField")
 	timer.get_node("%Animation").play("timer_ticking")
 
