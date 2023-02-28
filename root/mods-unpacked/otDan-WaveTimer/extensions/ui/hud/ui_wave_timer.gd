@@ -17,6 +17,13 @@ func _ready()->void:
 func _process(_delta:float)->void:
 	if wave_timer != null and is_instance_valid(wave_timer) and not is_run_lost:
 		var time = ceil(wave_timer.time_left)
+
+		if time > 0:
+			timer.visible = true
+		else:
+			timer.visible = false
+			return
+
 		var color: String = "#ffffff"
 
 		if change_color_on_half_wave and not color_changed and wave_timer.time_left <= wave_timer.wait_time / 2.0:
